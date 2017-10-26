@@ -17,8 +17,12 @@ module.exports = (localFile, imagesHtml) => new Promise((resolve, reject) => {
 	}
 	
 	let pathMap = {}
-	// console.log(remoteImageUrls)
 	let pendingCount = remoteImageUrls.length
+	if (!pendingCount) {
+		error(`There are no img tags in link list`)
+		resolve({ err: errArr, html: '' })
+	}
+	
 	remoteImageUrls.forEach(url => {
 		getPixels(url, (err, pixels) => {
 			if (err) {
@@ -49,8 +53,12 @@ module.exports = (localFile, imagesHtml) => new Promise((resolve, reject) => {
 		}
 		
 		localImageFiles = Array.from(new Set(localImageFiles))
-		//console.log(localImageFiles)
 		let pendingCount = localImageFiles.length
+		if (!pendingCount) {
+			error(`There are no img tags in the local file`)
+			resolve({ err: errArr, html: '' })
+		}
+		
 		localImageFiles.forEach(file => {
 			getPixels(file, (err, pixels) => {
 				if (err) {
