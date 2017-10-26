@@ -5,5 +5,8 @@
     "get-pixels": "^3.3.0",
     "html-entities": "^1.2.1",
     "replace-string": "^1.1.0"
+  },
+  "scripts": {
+    "server": "node index.js"
   }
 }

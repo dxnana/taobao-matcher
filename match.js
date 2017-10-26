@@ -100,7 +100,7 @@ module.exports = (localFile, imagesHtml) => new Promise((resolve, reject) => {
 		let html = `
 			<div style="width:${w}px;height:${h}px;">
 		    	<div class="footer-more-trigger" style="left:50%;top:auto;border:none;padding:0;">
-		    		<div class="footer-more-trigger" style="left:-${~~(h/2)}px;top:auto;border:none;padding:0;">
+		    		<div class="footer-more-trigger" style="left:-${~~(w/2)}px;top:auto;border:none;padding:0;">
 		    			<table width="${w}" height="${h}" border="0" cellpadding="0" cellspacing="0" style="font-size:0;line-height:0;">
 							${localHtml.replace(/(^[\s\S]*<table .+?>)|(<\/table>[\s\S]*$)/gm, '')}
 	        			</table>
